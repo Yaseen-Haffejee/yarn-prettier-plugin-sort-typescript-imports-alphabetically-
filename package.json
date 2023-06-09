@@ -1,0 +1,15 @@
+{
+  "name": "prettier-plugin-sort-typescript-imports-alphabetically",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Yaseen-Haffejee/yarn-prettier-plugin-sort-typescript-imports-alphabetically-.git",
+  "author": "yaseen haffejee <yaseenhafo@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yaseen-Haffejee/yarn-prettier-plugin-sort-typescript-imports-alphabetically/issues"
+  },
+  "dependencies": {
+    "prettier": "^2.8.8",
+    "typescript": "^5.1.3"
+  }
+}
