@@ -1,6 +1,6 @@
-import ts from "typescript";
+const ts = require('typescript');
 
-function sortMultipleDestrcuturedImports(imports){
+function sortMultipleDestructuredImports(imports){
   const generalExpression = /import {(.*?)}/.exec(imports);
   const fromStatement =  /from (.*)/.exec(imports);
   let finalImport = imports
@@ -8,18 +8,16 @@ function sortMultipleDestrcuturedImports(imports){
     const sortedImports = generalExpression[1].trim().split(",").map(s=>s.trim()).sort().join(', ');
     finalImport = "import {"+ sortedImports + "}" + fromStatement[0];
   }
-  console.log(finalImport);
   return finalImport;
 }
 
-export function sortImports(content) {
+function sortImports(content) {
   const sourceFile = ts.createSourceFile('dummy.ts', content, ts.ScriptTarget.Latest, true);
   const imports = [];
   const nonImports = [];
 
   for (const statement of sourceFile.statements) {
     if (ts.isImportDeclaration(statement) || ts.isImportEqualsDeclaration(statement)) {
-      // const finalImport = sortMultipleDestrcuturedImports(statement.getText());
       imports.push(statement);
     } else {
       nonImports.push(statement);
@@ -45,3 +43,6 @@ export function sortImports(content) {
 
   return sortedText;
 }
+
+
+module.exports = {sortImports}

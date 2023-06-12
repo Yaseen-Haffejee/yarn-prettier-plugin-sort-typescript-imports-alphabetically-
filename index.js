@@ -1,5 +1,5 @@
-import { getFileInfo, resolveConfig } from 'prettier';
-import { sortImports } from './import-sorter.js';
+const { getFileInfo, resolveConfig } = require('prettier');
+const { sortImports } = require('./import-sorter.js');
 
 function sortImportsPlugin(fileInfo, options) {
   const { ast, parser, filePath } = fileInfo;
